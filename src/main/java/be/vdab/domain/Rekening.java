@@ -3,7 +3,7 @@ package be.vdab.domain;
 import java.math.BigDecimal;
 
 public class Rekening {
-    private BigDecimal saldo = BigDecimal.valueOf(0);
+    private BigDecimal saldo = BigDecimal.ZERO;
     public void stort(BigDecimal bedrag) {
         saldo = saldo.add(bedrag);
     }
