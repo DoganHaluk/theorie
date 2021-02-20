@@ -1,4 +1,5 @@
 package be.vdab.domain;
+
 public class Jaar {
     private final int jaar;
 
@@ -13,5 +14,19 @@ public class Jaar {
     @Override
     public String toString() {
         return String.valueOf(jaar);
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object instanceof Jaar) {
+            var anderJaar = (Jaar) object;
+            return jaar == anderJaar.jaar;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return jaar;
     }
 }
