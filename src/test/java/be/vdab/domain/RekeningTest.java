@@ -49,4 +49,33 @@ class RekeningTest {
     void stortMetNullKanNiet() {
         assertThatNullPointerException().isThrownBy(() -> rekening.stort(null));
     }
+
+    private static final BigDecimal TWEE = BigDecimal.valueOf(2);
+
+    @Test
+    void eenNieuweRekeningHeeftGeenStortingen() {
+        assertThat(rekening.getStortingen()).isEmpty();
+    }
+
+    @Test
+    void nadatJe10€StortIsErEenStortingVan10€() {
+        rekening.stort(BigDecimal.TEN);
+        assertThat(rekening.getStortingen()).containsOnly(BigDecimal.TEN);
+    }
+
+    @Test
+    void nadatJe10€En1€StortZijnDeStortingen10€En1€() {
+        rekening.stort(BigDecimal.TEN);
+        rekening.stort(BigDecimal.ONE);
+        assertThat(rekening.getStortingen())
+                .containsExactly(BigDecimal.TEN, BigDecimal.ONE);
+    }
+
+    @Test
+    void nadatJe10€En1€En2€StortZijnDeStortingenGesorteerd1€En2€En10€() {
+        rekening.stort(BigDecimal.TEN);
+        rekening.stort(BigDecimal.ONE);
+        rekening.stort(TWEE);
+        assertThat(rekening.getStortingenGesorteerd()).isSorted().containsExactly(BigDecimal.ONE, TWEE, BigDecimal.TEN);
+    }
 }
