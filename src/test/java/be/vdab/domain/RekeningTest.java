@@ -67,8 +67,7 @@ class RekeningTest {
     void nadatJe10€En1€StortZijnDeStortingen10€En1€() {
         rekening.stort(BigDecimal.TEN);
         rekening.stort(BigDecimal.ONE);
-        assertThat(rekening.getStortingen())
-                .containsExactly(BigDecimal.TEN, BigDecimal.ONE);
+        assertThat(rekening.getStortingen()).containsExactly(BigDecimal.TEN, BigDecimal.ONE);
     }
 
     @Test
