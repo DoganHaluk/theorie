@@ -1,5 +1,6 @@
 package be.vdab.services;
 
+import be.vdab.repositories.PersoonRepositoryStub;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,11 +15,10 @@ class PersoonServiceTest {
 
     @BeforeEach
     void beforeEach() {
-        service = new PersoonService();
+        service = new PersoonService(new PersoonRepositoryStub());
     }
-
     @Test
-    void deWeddeStandaardAfwijkingIsPositief() throws IOException {
-        assertThat(service.standaardAfwijkingWeddes()).isPositive();
+    void deWeddeStandaardAfwijkingIs2() throws IOException {
+        assertThat(service.standaardAfwijkingWeddes()).isEqualByComparingTo("2");
     }
 }

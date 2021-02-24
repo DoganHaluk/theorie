@@ -5,7 +5,8 @@ import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class CSVPersoonRepository {
+public class CSVPersoonRepository implements PersoonRepository {
+    @Override
     public BigDecimal[] findAllWeddes() throws IOException {
         return Files.lines(Path.of("/data/personen.csv"))
                 .map(regel -> new BigDecimal(regel.split(";")[2]))
