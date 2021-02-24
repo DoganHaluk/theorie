@@ -8,7 +8,7 @@ import java.nio.file.Path;
 public class CSVPersoonRepository {
     public BigDecimal[] findAllWeddes() throws IOException {
         return Files.lines(Path.of("/data/personen.csv"))
-                .map(regel -> new BigDecimal(regel.split(",")[3]))
+                .map(regel -> new BigDecimal(regel.split(";")[2]))
                 .toArray(BigDecimal[]::new);
     }
 }
