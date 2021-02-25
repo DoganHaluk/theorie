@@ -23,7 +23,7 @@ class PersonenCSVMaker {
                 writer.write(VOORNAMEN[random.nextInt(VOORNAMEN.length)]);
                 writer.write(' ');
                 writer.write(FAMILIENAMEN[random.nextInt(FAMILIENAMEN.length)]);
-                writer.write(";");
+                writer.write(';');
                 writer.write(String.valueOf(2000 + random.nextInt(3000)));
                 writer.write('.');
                 writer.write(String.valueOf(random.nextInt(100)));
