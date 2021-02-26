@@ -28,7 +28,7 @@ class PersonenCSVMaker {
                 writer.write('.');
                 writer.write(String.valueOf(random.nextInt(100)));
                 writer.newLine();
-                System.out.println(String.format("%,d", i));
+                System.out.printf("%,d%n", i);
             }
         }
         System.out.println("Bestand gemaakt");
